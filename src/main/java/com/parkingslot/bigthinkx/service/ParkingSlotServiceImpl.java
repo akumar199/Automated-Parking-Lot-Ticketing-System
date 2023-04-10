@@ -15,6 +15,11 @@ public class  ParkingSlotServiceImpl implements ParkingSlotService  {
     @Autowired
     private ParkingSlotRepository parkingSlotRepository;
     
+    @Autowired
+    public ParkingSlotServiceImpl(ParkingSlotRepository parkingSlotRepository) {
+    	this.parkingSlotRepository = parkingSlotRepository;
+    }
+    
 
     
     public  void createParkingLot(int  numberOfSlots) {
@@ -78,6 +83,13 @@ public class  ParkingSlotServiceImpl implements ParkingSlotService  {
 		    parkingSlot.setColor(null);
 		    parkingSlotRepository.save(parkingSlot);
 		    return parkingSlot;
+	}
+
+
+
+	public void setParkingSlotRepository(ParkingSlotRepository parkingSlotRepository2) {
+		this.parkingSlotRepository = parkingSlotRepository;
+		
 	}
 }
 
